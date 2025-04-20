@@ -1,25 +1,41 @@
-/*
-#countlabel {
-  display: block;
-  text-align: center;
-  font-family: "helvetica";
-  font-size: 10cap;
+/* Buat tampilan umum dan tombol */
+button, input[type="checkbox"], input[type="radio"] {
+  font-family: "Helvetica", sans-serif;
+  font-size: 1em;
+  margin: 10px;
+  padding: 10px;
 }
-#btncountainer {
-  text-align: center;
-}
-.buttons {
-  color: rgb(109, 109, 109);
-  font-size: 1, 5em;
-  padding: 10px 20px;
+
+/* Efek tombol */
+button {
   background-color: rgb(108, 236, 172);
+  color: #333;
+  border: 1px solid rgb(81, 87, 99);
   border-radius: 10px;
-  border-color: rgb(81, 87, 99);
   cursor: pointer;
-  transition: background- 0, 25s;
+  transition: background 0.25s;
 }
-.buttons:hover {
+
+button:hover {
   background-color: rgb(76, 182, 129);
   color: aliceblue;
 }
-*/
+
+/* Text result style */
+p {
+  font-family: Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+/* Efek shaky */
+.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}

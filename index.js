@@ -1,62 +1,3 @@
-/*
-let username;
-username = window.prompt("insert username");
-window.alert("username saved");
-console.log(`username, ${username}`);
-
-let username;
-document.getElementById("subm1").onclick = function () {
-  username = document.getElementById("inp1").value;
-  document.getElementById("myh1").textContent = `welcome ${username} !`;
-   console.log(`the username is ${username}`);
-};
-
-
-const randomnum = Math.floor(Math.random() * 100);
-
-const kurang = document.getElementById("kurang");
-
-const ulang = document.getElementById("ulang");
-
-const myincrease = document.getElementById("tambah");
-
-const countlabel = document.getElementById("countlabel");
-
-let count = 0;
-
-tambah.onclick = function () {
-  count++;
-  countlabel.textContent = count;
-};
-
-ulang.onclick = function () {
-  count = 0;
-  countlabel.textContent =0;
-};
-kurang.onclick = function () {
-  count--;
-  countlabel.textContent = count;
-};
-
-
-
-const buton = document.getElementById("mybuttons");
-const input = document.getElementById("mytext");
-const resultelement = document.getElementById("resultelement");
-let age;
-mybuttons.onclick = function () {
-  age = mytext.value;
-  age = Number(mytext.value);
-
-  if (age <= 17) {
-    resultelement.textContent = "minor";
-  } else if (age > 17 && age <= 50) {
-    resultelement.textContent = "pass";
-  } else {
-    resultelement.textContent = "too old";
-  }
-};
-
 const mycheckbox = document.getElementById("mycheckbox");
 const myvisaBtn = document.getElementById("myvisaBtn");
 const mywalletBtn = document.getElementById("mywalletBtn");
@@ -66,20 +7,39 @@ const subresult = document.getElementById("subresult");
 const checkresult = document.getElementById("checkresult");
 
 submitBtn.onclick = function () {
+  let error = false;
+
+  // Cek subscribe
   if (mycheckbox.checked) {
-    subresult.textContent = "you subs";
+    subresult.textContent = "You subscribed.";
+    subresult.classList.remove("shake");
   } else {
-    subresult.textContent = "ur not subscribe";
+    subresult.textContent = "You're not subscribed.";
+    subresult.classList.add("shake");
+    error = true;
   }
+
+  // Cek payment method
   if (myvisaBtn.checked) {
-    checkresult.textContent = "u using visa";
+    checkresult.textContent = "Using Visa";
+    checkresult.classList.remove("shake");
   } else if (mywalletBtn.checked) {
-    checkresult.textContent = "using eWallet";
+    checkresult.textContent = "Using eWallet";
+    checkresult.classList.remove("shake");
   } else if (mypasportBtn.checked) {
-    checkresult.textContent = "using pasport";
+    checkresult.textContent = "Using Passport";
+    checkresult.classList.remove("shake");
   } else {
-    checkresult.textContent = "select payment method";
+    checkresult.textContent = "Please select a payment method.";
+    checkresult.classList.add("shake");
+    error = true;
+  }
+
+  // Remove shake effect after animation ends
+  if (error) {
+    setTimeout(() => {
+      subresult.classList.remove("shake");
+      checkresult.classList.remove("shake");
+    }, 500);
   }
 };
-
-*/
